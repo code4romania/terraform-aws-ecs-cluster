@@ -1,6 +1,8 @@
 resource "aws_ecs_cluster" "ecs" {
   name = var.namespace
   tags = var.tags
+
+  depends_on = [aws_iam_service_linked_role.ecs]
 }
 
 ### Spot Capacity
