@@ -1,3 +1,8 @@
+resource "aws_iam_service_linked_role" "ecs" {
+  count            = var.create_iam_service_linked_role ? 1 : 0
+  aws_service_name = "ecs.amazonaws.com"
+}
+
 ### IAM Resources
 data "aws_iam_policy_document" "ecs" {
   statement {

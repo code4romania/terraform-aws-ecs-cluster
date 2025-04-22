@@ -163,3 +163,9 @@ variable "service_discovery_domain" {
   type    = string
   default = "ecs.svc"
 }
+
+variable "create_iam_service_linked_role" {
+  description = "Whether to create `AWSServiceRoleForECS` service-linked role. Set it to `false` if you already have an ECS cluster created in the AWS account and AWSServiceRoleForECS already exists."
+  type        = bool
+  default     = true
+}
