@@ -1,8 +1,16 @@
+resource "aws_ecs_account_setting_default" "ecs" {
+  name  = "awsvpcTrunking"
+  value = "enabled"
+}
+
 resource "aws_ecs_cluster" "ecs" {
   name = var.namespace
   tags = var.tags
 
-  depends_on = [aws_iam_service_linked_role.ecs]
+  depends_on = [
+    aws_ecs_account_setting_default.ecs,
+    aws_iam_service_linked_role.ecs,
+  ]
 }
 
 ### Spot Capacity
