@@ -21,3 +21,7 @@ output "asg_name" {
 output "service_discovery_namespace_id" {
   value = aws_service_discovery_private_dns_namespace.ecs.id
 }
+
+output "service_discovery_namespace_arn" {
+  value = aws_service_discovery_private_dns_namespace.ecs.arn
+}
